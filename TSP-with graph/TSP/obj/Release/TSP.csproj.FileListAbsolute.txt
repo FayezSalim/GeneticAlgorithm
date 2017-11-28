@@ -1,0 +1,38 @@
+C:\Users\Virux\Desktop\GA\TSP\TSP\bin\Release\TSP.exe.config
+C:\Users\Virux\Desktop\GA\TSP\TSP\bin\Release\TSP.exe
+C:\Users\Virux\Desktop\GA\TSP\TSP\bin\Release\TSP.pdb
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\MainWindow.baml
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\MainWindow.g.cs
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\App.g.cs
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP_MarkupCompile.cache
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP.g.resources
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP.Properties.Resources.resources
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP.csproj.GenerateResource.Cache
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP.exe
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP.pdb
+C:\Users\Virux\Desktop\GA\TSP\TSP\obj\Release\TSP.csprojResolveAssemblyReference.cache
+D:\work\GA\TSP\TSP\bin\Release\TSP.exe.config
+D:\work\GA\TSP\TSP\obj\Release\TSP.exe
+D:\work\GA\TSP\TSP\obj\Release\TSP.pdb
+D:\work\GA\TSP\TSP\bin\Release\TSP.exe
+D:\work\GA\TSP\TSP\obj\Release\TSP.csprojResolveAssemblyReference.cache
+D:\work\GA\TSP\TSP\obj\Release\MainWindow.baml
+D:\work\GA\TSP\TSP\obj\Release\MainWindow.g.cs
+D:\work\GA\TSP\TSP\obj\Release\App.g.cs
+D:\work\GA\TSP\TSP\obj\Release\TSP_MarkupCompile.cache
+D:\work\GA\TSP\TSP\obj\Release\TSP.g.resources
+D:\work\GA\TSP\TSP\obj\Release\TSP.Properties.Resources.resources
+D:\work\GA\TSP\TSP\obj\Release\TSP.csproj.GenerateResource.Cache
+D:\work\GA\TSP-with graph\TSP\bin\Release\TSP.exe.config
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP.exe
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP.pdb
+D:\work\GA\TSP-with graph\TSP\bin\Release\TSP.exe
+D:\work\GA\TSP-with graph\TSP\bin\Release\TSP.pdb
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP.csprojResolveAssemblyReference.cache
+D:\work\GA\TSP-with graph\TSP\obj\Release\MainWindow.baml
+D:\work\GA\TSP-with graph\TSP\obj\Release\MainWindow.g.cs
+D:\work\GA\TSP-with graph\TSP\obj\Release\App.g.cs
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP_MarkupCompile.cache
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP.g.resources
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP.Properties.Resources.resources
+D:\work\GA\TSP-with graph\TSP\obj\Release\TSP.csproj.GenerateResource.Cache

@@ -1,0 +1,1209 @@
+﻿<Window x:Class="TSP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="TSP-Gentic Algorithm"
+        Width="1138.525"
+        Height="709.808"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <Storyboard x:Key="green">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="main" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFF7F7F7" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label2" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label3" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label4" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label5" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="citylistdisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="citylistdisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="currentpopdisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF042271" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="currentpopdisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="newpopdisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF042271" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="newpopdisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="bestsolndisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="bestsolndisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF042271" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="checkBox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="genlabel" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF02FF00" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gentextbox" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="speed" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="mutationratetextbox" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="crossoverratetextbox" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="White" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="mutationratetextbox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="speed" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gentextbox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="crossoverratetextbox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="stop" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFDDDDDD" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="stop" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="start" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFDDDDDD" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="start" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gendist" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFDDDDDD" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gendist" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="delcity" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFDDDDDD" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="delcity" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="addcity" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FFDDDDDD" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="#FF3E3E3E" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="addcity" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label6" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label7" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label8" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label9" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label1" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="Black" />
+                <EasingColorKeyFrame KeyTime="0:0:0.2" Value="Lime" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="green_Copy1">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="main" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Black" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FFF7F7F7" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label2" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label3" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label4" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label5" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="citylistdisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Black" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="citylistdisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="currentpopdisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FF042271" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="currentpopdisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Black" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="newpopdisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FF042271" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="newpopdisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Black" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="bestsolndisplay" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Black" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="bestsolndisplay" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FF042271" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="checkBox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="genlabel" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF02FF00" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gentextbox" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="speed" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="mutationratetextbox" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="crossoverratetextbox" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="White" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="mutationratetextbox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="speed" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gentextbox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="crossoverratetextbox" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="stop" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FFDDDDDD" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="stop" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="start" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FFDDDDDD" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="start" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gendist" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FFDDDDDD" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="gendist" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="delcity" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FFDDDDDD" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="delcity" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="addcity" Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="#FF3E3E3E" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="#FFDDDDDD" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="addcity" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label6" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label7" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label8" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label9" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="label1" Storyboard.TargetProperty="(TextElement.Foreground).(SolidColorBrush.Color)">
+                <SplineColorKeyFrame KeyTime="0" Value="Lime" />
+                <SplineColorKeyFrame KeyTime="0:0:0.2" Value="Black" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="conver">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="home" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="convergence" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}" />
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="back">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="home" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}" />
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="convergence" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ToggleButton.Checked" SourceName="checkBox">
+            <BeginStoryboard Storyboard="{StaticResource green}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ToggleButton.Unchecked" SourceName="checkBox">
+            <BeginStoryboard x:Name="green_Copy1_BeginStoryboard" Storyboard="{StaticResource green_Copy1}" />
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid x:Name="main" Background="#FFF7F7F7">
+        <Grid x:Name="home" Margin="0,4.49,2,10">
+            <ListView x:Name="citylistdisplay"
+                      Width="536"
+                      Height="248"
+                      Margin="10,93.844,0,0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Foreground="Black"
+                      ItemsSource="{Binding CityCollection}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn DisplayMemberBinding="{Binding no}">
+                            <GridViewColumnHeader Width="100"
+                                                  Content="Name"
+                                                  Foreground="Black" />
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding dist}">
+                            <GridViewColumnHeader Width="350"
+                                                  Content="Distances"
+                                                  Foreground="Black" />
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="label8"
+                   Margin="10,55.47,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Cities"
+                   FontSize="21.333" />
+            <Button x:Name="addcity"
+                    Width="84.593"
+                    Height="27.729"
+                    Margin="222.557,346.844,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="addcity_Click"
+                    Content="Add City" />
+            <ListView x:Name="newpopdisplay"
+                      Width="520.415"
+                      Height="248"
+                      Margin="588.482,391.39,0,0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      ItemsSource="{Binding NewPopCollection}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn DisplayMemberBinding="{Binding orderstring}">
+                            <GridViewColumnHeader Width="450" Content="Order">
+                                <GridViewColumnHeader.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0" Color="White" />
+                                        <GradientStop Offset="0.4091" Color="White" />
+                                        <GradientStop Offset="1" Color="#FFF7F8F9" />
+                                    </LinearGradientBrush>
+                                </GridViewColumnHeader.Background>
+                            </GridViewColumnHeader>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding distance}">
+                            <GridViewColumnHeader Width="50" Content="Distance" />
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="delcity"
+                    Width="89.125"
+                    Height="27.729"
+                    Margin="312.15,346.844,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="delcity_Click"
+                    Content="Reset City List" />
+            <Label x:Name="label9"
+                   Margin="10,353.016,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Best Solution"
+                   FontSize="21.333" />
+            <Label x:Name="label7"
+                   Margin="588.482,55.47,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Current Population"
+                   FontSize="21.333" />
+            <ListView x:Name="currentpopdisplay"
+                      Width="520.415"
+                      Height="248"
+                      Margin="588.482,93.844,0,0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      ItemsSource="{Binding PresentPopCollection}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn DisplayMemberBinding="{Binding orderstring}">
+                            <GridViewColumnHeader Width="450"
+                                                  Content="Order"
+                                                  Foreground="Black" />
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding distance}">
+                            <GridViewColumnHeader Width="50"
+                                                  Content="Distance"
+                                                  Foreground="Black" />
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="gendist"
+                    Width="137.593"
+                    Height="27.729"
+                    Margin="408.407,346.844,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="gendist_Click"
+                    Content="Generate Distances" />
+            <Button x:Name="start"
+                    Width="137.593"
+                    Height="27.729"
+                    Margin="263.682,622.717,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="start_Click"
+                    Content="Start" />
+            <ListView x:Name="bestsolndisplay"
+                      Width="536"
+                      Height="150.152"
+                      Margin="10,391.39,0,0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      ItemsSource="{Binding BestGenomeCollection}">
+                <ListView.View>
+                    <GridView AllowsColumnReorder="False">
+                        <GridViewColumn DisplayMemberBinding="{Binding orderstring}">
+                            <GridViewColumnHeader x:Name="gridViewColumnHeader"
+                                                  Width="450"
+                                                  Content="Order" />
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding distance}">
+                            <GridViewColumnHeader x:Name="gridViewColumnHeader1"
+                                                  Width="70"
+                                                  Content="Distance" />
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="label6"
+                   Height="39.546"
+                   Margin="588.482,351.844,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="New Population"
+                   FontSize="21.333" />
+            <Button x:Name="stop"
+                    Width="137.593"
+                    Height="27.729"
+                    Margin="408.407,622.717,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="stop_Click"
+                    Content="Stop" />
+            <Label x:Name="label2"
+                   Width="94.98"
+                   Height="25.968"
+                   Margin="10,546.542,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Crossover Rate" />
+            <Label x:Name="label3"
+                   Width="94.98"
+                   Height="25.968"
+                   Margin="10,573.51,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Mutation Rate" />
+            <Label x:Name="label4"
+                   Width="94.98"
+                   Height="25.968"
+                   Margin="10,601.08,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Speed" />
+            <Label x:Name="label5"
+                   Width="94.98"
+                   Height="25.968"
+                   Margin="10,629.048,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Generations" />
+            <TextBox x:Name="crossoverratetextbox"
+                     Width="135.443"
+                     Height="21"
+                     Margin="109.98,546.542,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     TextWrapping="Wrap" />
+            <TextBox x:Name="mutationratetextbox"
+                     Width="135.443"
+                     Height="21"
+                     Margin="109.98,576.51,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     TextWrapping="Wrap" />
+            <TextBox x:Name="speed"
+                     Width="135.443"
+                     Height="21"
+                     Margin="109.98,603.446,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     TextWrapping="Wrap" />
+            <TextBox x:Name="gentextbox"
+                     Width="135.443"
+                     Height="21"
+                     Margin="109.98,629.446,0,0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     TextWrapping="Wrap" />
+            <Label x:Name="label1"
+                   Width="76.98"
+                   Height="25.968"
+                   Margin="957.937,341.844,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Generation :" />
+            <Label x:Name="genlabel"
+                   Width="73.98"
+                   Height="25.968"
+                   Margin="1034.917,341.844,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="" />
+            <CheckBox x:Name="checkBox"
+                      Width="97"
+                      Height="16.57"
+                      Margin="1008.917,640.446,0,0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Content="Switch Theme" />
+
+        </Grid>
+        <GridSplitter x:Name="gridSplitter"
+                      Width="1118.897"
+                      Height="3.864"
+                      Margin="0,43.374,0,0"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Background="#FF976666"
+                      d:IsLocked="True" />
+        <Label x:Name="label"
+               Width="619.98"
+               Margin="10,0,0,0"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Content="Travelling Salesman Problem"
+               FontSize="24"
+               d:IsLocked="True" />
+        <Grid x:Name="convergence"
+              Margin="0,47.238,0,0"
+              Visibility="Hidden">
+            <Rectangle x:Name="back"
+                       Width="1132.525"
+                       Height="633.57"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Fill="Black"
+                       Stroke="Black" />
+            <GridSplitter Height="2.273"
+                          Margin="5.814,509.716,0,0"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top"
+                          d:IsLocked="True" />
+            <Grid x:Name="previous"
+                  Height="360.227"
+                  Margin="114.047,144.489,861.85,0"
+                  VerticalAlignment="Top">
+                <Rectangle x:Name="rect7"
+                           Width="10"
+                           Height="222.727"
+                           Margin="45,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect1"
+                           Width="10"
+                           Height="339.773"
+                           Margin="60,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect2"
+                           Width="10"
+                           Height="360.227"
+                           Margin="75,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect3"
+                           Width="10"
+                           Height="246.591"
+                           Margin="90,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect8"
+                           Width="10"
+                           Height="90.909"
+                           Margin="30,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect4"
+                           Width="10"
+                           Height="90.909"
+                           Margin="105,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect5"
+                           Width="10"
+                           Height="182.954"
+                           Margin="120,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect9"
+                           Width="10"
+                           Height="264.773"
+                           Margin="15,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect10"
+                           Width="10"
+                           Height="128.409"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect6"
+                           Width="10"
+                           Height="53.409"
+                           Margin="135,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.665"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <GridSplitter Width="3.409"
+                          Height="457.954"
+                          Margin="424.273,51.762,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          d:IsLocked="True" />
+            <GridSplitter Width="3.409"
+                          Height="457.954"
+                          Margin="810.637,52.899,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          d:IsLocked="True" />
+            <Label Width="247.727"
+                   Height="44.318"
+                   Margin="0,54.035,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Previous Population"
+                   FontSize="21.333"
+                   Foreground="White" />
+            <GridSplitter Width="1132.525"
+                          Height="2.273"
+                          Margin="0,49.489,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top"
+                          d:IsLocked="True" />
+            <Label Width="381.818"
+                   Height="44.318"
+                   Margin="0,4.717,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Realtime Convergance Statistics"
+                   FontSize="24"
+                   FontWeight="Bold"
+                   Foreground="White" />
+            <Label Width="247.727"
+                   Height="44.318"
+                   Margin="427.682,54.035,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Algorithm Status"
+                   FontSize="21.333"
+                   Foreground="White" />
+            <Label Width="247.727"
+                   Height="44.318"
+                   Margin="814.046,51.762,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Current Population"
+                   FontSize="21.333"
+                   Foreground="White" />
+            <Grid x:Name="data" Margin="432.682,144.489,315.26,125.916">
+                <Label Width="127.272"
+                       Height="44.318"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Start Time :"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label Width="127.272"
+                       Height="44.318"
+                       Margin="0,152.273,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Current Best :"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label Width="177.272"
+                       Height="44.318"
+                       Margin="0,201.591,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Current Generation:"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label Width="177.272"
+                       Height="44.318"
+                       Margin="0,255.683,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Last Best found in :"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label Width="127.272"
+                       Height="44.318"
+                       Margin="0,53.637,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Elapsed Time :"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label Width="177.272"
+                       Height="44.318"
+                       Margin="0,309.545,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="Last Best found at :"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label Width="127.272"
+                       Height="44.318"
+                       Margin="0,102.955,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="End Time :"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="strt"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,0,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="elaps"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,53.637,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="end"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,102.955,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="currbest"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,152.273,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="currgen"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,201.591,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="bestgen"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,255.683,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+                <Label x:Name="besttime"
+                       Width="192.311"
+                       Height="44.318"
+                       Margin="182.272,309.545,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Content="0"
+                       FontSize="18.667"
+                       FontWeight="Thin"
+                       Foreground="White" />
+            </Grid>
+            <Grid x:Name="current"
+                  Height="360.227"
+                  Margin="885.638,144.489,90.259,0"
+                  VerticalAlignment="Top">
+                <Rectangle x:Name="rect17"
+                           Width="10"
+                           Height="222.727"
+                           Margin="45,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect11"
+                           Width="10"
+                           Height="339.773"
+                           Margin="60,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect12"
+                           Width="10"
+                           Height="360.227"
+                           Margin="75,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect13"
+                           Width="10"
+                           Height="246.591"
+                           Margin="90,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect18"
+                           Width="10"
+                           Height="90.909"
+                           Margin="30,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect14"
+                           Width="10"
+                           Height="90.909"
+                           Margin="105,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect15"
+                           Width="10"
+                           Height="182.954"
+                           Margin="120,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect19"
+                           Width="10"
+                           Height="264.773"
+                           Margin="15,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect20"
+                           Width="10"
+                           Height="128.409"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Rectangle x:Name="rect16"
+                           Width="10"
+                           Height="53.409"
+                           Margin="135,0,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Bottom"
+                           Opacity="0.67"
+                           Stroke="Black"
+                           StrokeThickness="0">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush StartPoint="0.624,-0.017" EndPoint="0.624,0.983">
+                            <GradientStop Color="Red" />
+                            <GradientStop Offset="1" Color="#FF2EFF00" />
+                            <GradientStop Offset="0.511" Color="#FFE8FF00" />
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+            </Grid>
+            <Label Width="106.817"
+                   Height="36.137"
+                   Margin="0,511.989,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Route"
+                   FontSize="16"
+                   Foreground="White" />
+            <Label Width="86.362"
+                   Height="36.137"
+                   Margin="190.909,511.989,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="Distance"
+                   FontSize="16"
+                   Foreground="White" />
+            <Label x:Name="dist"
+                   Width="86.362"
+                   Height="29.185"
+                   Margin="267.221,510.813,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content=""
+                   FontSize="17.333"
+                   Foreground="White" />
+            <Label x:Name="order"
+                   Width="800.341"
+                   Height="73.907"
+                   Margin="5.296,546.174,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   BorderBrush="White"
+                   BorderThickness="1"
+                   Content=""
+                   FontSize="14.667"
+                   Foreground="White" />
+            <Button x:Name="back1"
+                    Width="159.779"
+                    Height="36.918"
+                    Margin="959.257,583.163,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="back1_Click"
+                    Content="Go Back"
+                    FontSize="16" />
+        </Grid>
+    </Grid>
+</Window>
