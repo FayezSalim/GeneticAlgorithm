@@ -536,7 +536,7 @@
                    Margin="10,601.08,0,0"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
-                   Content="Speed" />
+                   Content="Delay" />
             <Label x:Name="label5"
                    Width="94.98"
                    Height="25.968"
@@ -564,7 +564,7 @@
                      Margin="109.98,603.446,0,0"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
-                     TextWrapping="Wrap" />
+                     TextWrapping="Wrap" TextChanged="Speed_OnTextChanged" />
             <TextBox x:Name="gentextbox"
                      Width="135.443"
                      Height="21"

@@ -317,11 +317,6 @@ namespace TSP
                 MessageBox.Show("Please add atleast 3 cities", "Alert",MessageBoxButton.OK);
                 return;
             }
-            if ((int)Convert.ToUInt32(this.speed.Text)<10)
-            {
-                this.speed.Text = "10";
-            }
-            pause =(int) Convert.ToUInt64(this.speed.Text);
             generations = (Int64)Convert.ToUInt64(this.gentextbox.Text);
             crossoverrate = Convert.ToDouble(this.crossoverratetextbox.Text);
             mutationrate = Convert.ToDouble(this.mutationratetextbox.Text);
@@ -350,6 +345,11 @@ namespace TSP
             }
             else
             {
+                if ((int)Convert.ToUInt32(this.speed.Text) < 1)
+                {
+                    this.speed.Text = "1";
+                }
+                pause = (int)Convert.ToUInt64(this.speed.Text);
                 MessageBox.Show("The application will stop responding for a while please be patient", "Alert", MessageBoxButton.OK, MessageBoxImage.Information);
                 Storyboard n = (Storyboard)TryFindResource("conver");
                 n.Begin();
@@ -871,6 +871,11 @@ namespace TSP
             this.order.Content = "";
             Storyboard f = (Storyboard)TryFindResource("back");
             f.Begin();
+        }
+
+        private void Speed_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            Int32.TryParse(this.speed.Text,out this.pause);
         }
     }
 }
